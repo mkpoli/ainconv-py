@@ -1,0 +1,2 @@
+VOWELS = "aeiou"
+CONSONANTS = "ptckmnshwry’"

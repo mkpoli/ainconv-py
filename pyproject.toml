@@ -1,0 +1,45 @@
+[tool.poetry]
+name = "ainconv"
+version = "0.1.0"
+description = "Converts Ainu text between different scripts (Katakana, Latin, Cyrillic and more)"
+authors = ["mkpoli <mkpoli@mkpo.li>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/mkpoli/ainconv"
+keywords = [
+    "ainu",
+    "converter",
+    "katakana",
+    "latin",
+    "cyrillic",
+    "language",
+    "writing system",
+    "text preprocessing",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Text Processing",
+]
+packages = [{ include = "ainconv", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+more-itertools = "^10.2.0"
+
+[tool.poetry.scripts]
+test = "pytest"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.mypy.overrides]]
+module = "ainconv"
+ignore_missing_imports = true
