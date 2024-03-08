@@ -1,5 +1,9 @@
 from more_itertools import peekable
 
+from icecream import ic
+
+ic.configureOutput(includeContext=True)
+
 from ..conversion.latin import CONSONANTS
 from ..syllable import separate
 
@@ -120,9 +124,25 @@ def kana2latn(kana: str) -> str:
     return "".join(result)
 
 
-def latn2kana(text: str) -> str:
-    """Converts Latin script to Katakana script."""
+def latn2kana(
+    text: str,
+    use_wi: bool = False,
+    use_we: bool = False,
+    use_wo: bool = False,
+) -> str:
+    """Converts Latin script to Katakana script.
+
+    Args:
+        text (str): The Latin script to be converted.
+        use_wi (bool): Whether to use "ヰ" (wi) instead of "ウィ" (wi).
+        use_we (bool): Whether to use "ヱ" (we) instead of "ウェ" (we).
+        use_wo (bool): Whether to use "ヲ" (wo) instead of "ウォ" (wo).
+
+    Returns:
+        str: The converted Katakana script.
+    """
     syllables = separate(text)
+    ic(syllables)
 
     result = ""
 
@@ -210,10 +230,11 @@ def latn2kana(text: str) -> str:
             "nn": "ン",
             "tt": "ッ",
         }.get(remains)
+        ic(converted_remains)
 
         result += converted_remains or ""
 
-        # print(f"{coda = } {next_syllable = }")
+        ic(coda, next_syllable)
 
         next_char = next_syllable[0] if next_syllable else None
 
@@ -245,10 +266,18 @@ def latn2kana(text: str) -> str:
 
         result += converted_coda
 
-    return (
-        result.replace("ィ", "イ")
-        .replace("ゥ", "ウ")
-        .replace("ㇴ", "ン")
-        .replace("ヱ", "ウェ")
-        .replace("ヰ", "ウィ")
-    )
+        ic(result)
+
+    result = result.replace("ィ", "イ").replace("ゥ", "ウ").replace("ㇴ", "ン")
+
+    # Replace wi, we, wo
+    if not use_wi:
+        result = result.replace("ヰ", "ウィ")
+    if not use_we:
+        result = result.replace("ヱ", "ウェ")
+    if not use_wo:
+        result = result.replace("ヲ", "ウォ")
+
+    ic(result)
+
+    return result

@@ -72,6 +72,20 @@ def test_latn2kana() -> None:
     for latn, _, kana, _, _, _ in TEST_CASES:
         assert latn2kana(latn) == kana
 
+    # Test variations
+
+    ## wi we wo
+    assert latn2kana("wiki") == "ウィキ"  # for loanwords only
+    assert latn2kana("wiki", use_wi=True) == "ヰキ"
+    assert latn2kana("wenpe") == "ウェンペ"
+    assert latn2kana("wenpe", use_we=True) == "ヱンペ"
+    assert latn2kana("wose") == "ウォセ"
+    assert latn2kana("wose", use_wo=True) == "ヲセ"
+    # assert latn2kana("wósekamuy") == "ウォセカムイ"
+    # assert latn2kana("wósekamuy", use_wo=True) == "ヲセカムイ"
+    assert latn2kana("wiwewo") == "ウィウェウォ"
+    assert latn2kana("wiwewo", use_wi=True, use_we=True, use_wo=True) == "ヰヱヲ"
+
 
 def test_kana2latn() -> None:
     for _, _, kana, _, _, latn_lossy in TEST_CASES:

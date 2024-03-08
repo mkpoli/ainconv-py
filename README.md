@@ -17,6 +17,8 @@
 - [Usage](#usage)
   - [Word Conversion](#word-conversion)
   - [Extra Functionality](#extra-functionality)
+    - [Conversion Options](#conversion-options)
+      - [Katakana](#katakana)
     - [Script Detection](#script-detection)
     - [Syllable Splitting](#syllable-splitting)
 - [Support](#support)
@@ -72,6 +74,26 @@ print(kana2cyrl("イランカラㇷ゚テ")) # "иранкараптэ"
 ```
 
 ### Extra Functionality
+
+#### Conversion Options
+
+##### Katakana
+
+```python
+from ainconv import latn2kana
+
+# Use ヰ (wi), ヱ (we) and ヲ (wo) in conversion
+assert latn2kana("wiki") == "ウィキ"  # for loanwords only
+assert latn2kana("wiki", use_wi=True) == "ヰキ"
+assert latn2kana("wenpe") == "ウェンペ"
+assert latn2kana("wenpe", use_we=True) == "ヱンペ"
+assert latn2kana("wose") == "ウォセ"
+assert latn2kana("wose", use_wo=True) == "ヲセ"
+
+assert latn2kana("wiwewo") == "ウィウェウォ"
+assert latn2kana("wiwewo", use_wi=True, use_we=True, use_wo=True) == "ヰヱヲ"
+```
+
 
 #### Script Detection
 
