@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ainconv"
-version = "0.1.1"
+version = "0.1.2"
 description = "Converts Ainu text between different scripts (Katakana, Latin, Cyrillic and more)"
 authors = ["mkpoli <mkpoli@mkpo.li>"]
 license = "MIT"
@@ -35,6 +35,10 @@ test = "pytest"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.2"
+myst-parser = "^2.0.0"
+sphinx = "^7.2.6"
+sphinxawesome-theme = "^5.1.1"
+furo = "^2024.1.29"
 
 [build-system]
 requires = ["poetry-core"]

@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added Discord badge and links to [README.md](README.md).
 - Added [CONTRIBUTING.md](CONTRIBUTING.md) file for contribution guidelines.
 - Added MIT License to [LICENSE](LICENSE) file.
+- Added [Sphinx](https://www.sphinx-doc.org/) documentation.
+- Added [readthedocs](https://readthedocs.org/) integration.
 
 ### Fixed
 
