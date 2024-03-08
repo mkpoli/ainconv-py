@@ -25,7 +25,7 @@ print(f"Dev dependencies: {dev_deps}")
 
 
 # List of directories to check for imports
-directories_to_check = ["src", "tests"]
+directories_to_check = ["src"]
 
 
 def check_for_dev_deps_in_code(dev_deps, directories):
