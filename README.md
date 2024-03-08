@@ -1,3 +1,4 @@
+<!-- omit in toc -->
 # ainconv - Ainu language script converter
 
 ![Version](https://img.shields.io/pypi/v/ainconv)
@@ -5,6 +6,21 @@
 ![GitHub issues](https://img.shields.io/github/issues/mkpoli/ainconv-py)
 ![GitHub](https://img.shields.io/github/license/mkpoli/ainconv-py)
 [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.aynu.org/)
+
+<!-- omit in toc -->
+## Table of Contents
+
+- [Overview](#overview)
+  - [Important Note](#important-note)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Word Conversion](#word-conversion)
+  - [Extra Functionality](#extra-functionality)
+    - [Script Detection](#script-detection)
+    - [Syllable Splitting](#syllable-splitting)
+- [Support](#support)
+- [License](#license)
+- [See also](#see-also)
 
 ## Overview
 
