@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added changelog script to automate changelog update.
 - Added links to [readthedocs](https://readthedocs.org/) in [README.md](README.md) and [pyproject.toml](pyproject.toml).
 
+### Changed
+
+- Improved publish flow to prevent unchecked push in [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ### Fixed
 
 - Fixed non-alphabetic group of syllable gets ignored.

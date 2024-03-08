@@ -57,6 +57,7 @@ The documentation is located at [docs/](docs/). You can make changes to the docu
 - [ ] Bump the version in `pyproject.toml` (`poetry version <version>`)
 - [ ] Update `CHANGELOG.md` with the new version from `Unreleased`. (`poe changelog`)
 - [ ] Stage and commit the changes (`git commit -am "Bump version to <version>"`)
+- [ ] Check and build the package. (`poe build`)
 - [ ] Create a new tag (`git tag -a <version> -m "Version <version>"`) and push it (`git push --tags`)
-- [ ] Build and publish the package (`poe build` and `poetry publish`)
+- [ ] Publish the package to PyPI (and `poetry publish`)
 - [ ] Create a new release on GitHub with the release notes from `CHANGELOG.md`
