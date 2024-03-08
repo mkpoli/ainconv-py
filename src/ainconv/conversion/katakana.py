@@ -149,6 +149,10 @@ def latn2kana(
     for syllable in syllables:
         syllable = clean(syllable.lower())
 
+        if not any(char.isalpha() for char in syllable):
+            result += syllable
+            continue
+
         for accented, vowel in ACCENTED_VOWELS.items():
             syllable = syllable.replace(accented, vowel)
 

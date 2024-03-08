@@ -64,6 +64,14 @@ TEST_CASES = [
         "워세카무이",
         "wosekamui",
     ),
+    (
+        "Aynu itak",
+        ["Ay", "nu", "i", "tak"],
+        "アイヌ イタㇰ",
+        "Айну итак",
+        "애누 이닥",
+        "ainu itak",
+    ),
 ]
 
 

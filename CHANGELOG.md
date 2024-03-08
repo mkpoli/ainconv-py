@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Fixed non-alphabetic group of syllable gets ignored.
 - Fixed extra apostrophe in conversion from Latin.
 - Fixed Cyrillic-Latin conversion not preserving case.
 - Fixed Latin syllabification cannot handle multiple words.
