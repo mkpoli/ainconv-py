@@ -289,4 +289,4 @@ def latn2kana(
 
     ic(result)
 
-    return result
+    return result.replace("’", "")

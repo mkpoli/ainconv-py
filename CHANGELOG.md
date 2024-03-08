@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Fixed extra apostrophe in conversion from Latin.
 - Fixed Cyrillic-Latin conversion not preserving case.
 - Fixed Latin syllabification cannot handle multiple words.
 - Fixed Latin with accented vowels cannot be converted to Kana.
