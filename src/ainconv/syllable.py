@@ -1,5 +1,6 @@
 from .conversion.latin import VOWELS, CONSONANTS
-from icecream import ic
+
+# from icecream import ic
 
 
 def separate_word(text: str) -> list[str]:
@@ -50,10 +51,10 @@ def separate(text: str) -> list[str]:
     last_alpha = text[0].isalpha()
 
     for char in text:
-        ic(char, last_alpha, current_group, result)
+        # ic(char, last_alpha, current_group, result)
 
         current_alpha = char.isalpha()
-        ic(current_alpha, last_alpha, current_alpha == last_alpha)
+        # ic(current_alpha, last_alpha, current_alpha == last_alpha)
 
         if current_alpha != last_alpha:
             if current_group:

@@ -1,8 +1,8 @@
 from more_itertools import peekable
 
-from icecream import ic
+# from icecream import ic
 
-ic.configureOutput(includeContext=True)
+# ic.configureOutput(includeContext=True)
 
 from ..conversion.latin import ACCENTED_VOWELS, CONSONANTS, clean
 from ..syllable import separate
@@ -142,7 +142,7 @@ def latn2kana(
         str: The converted Katakana script.
     """
     syllables = separate(text)
-    ic(syllables)
+    # ic(syllables)
 
     result = ""
 
@@ -238,7 +238,7 @@ def latn2kana(
             "nn": "ン",
             "tt": "ッ",
         }.get(remains)
-        ic(converted_remains)
+        # ic(converted_remains)
 
         result += converted_remains or ""
 
@@ -279,7 +279,7 @@ def latn2kana(
 
         result += converted_coda
 
-        ic(result)
+        # ic(result)
 
     result = result.replace("ィ", "イ").replace("ゥ", "ウ").replace("ㇴ", "ン")
 
@@ -291,6 +291,6 @@ def latn2kana(
     if not use_wo:
         result = result.replace("ヲ", "ウォ")
 
-    ic(result)
+    # ic(result)
 
     return result.replace("’", "")
