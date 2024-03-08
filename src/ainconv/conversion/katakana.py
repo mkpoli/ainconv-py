@@ -4,7 +4,7 @@ from icecream import ic
 
 ic.configureOutput(includeContext=True)
 
-from ..conversion.latin import CONSONANTS
+from ..conversion.latin import CONSONANTS, clean
 from ..syllable import separate
 
 KANA_2_LATN = {
@@ -147,7 +147,11 @@ def latn2kana(
     result = ""
 
     for i, syllable in enumerate(syllables):
+        syllable = clean(syllable.lower())
+
         next_syllable = syllables[i + 1] if i + 1 < len(syllables) else None
+        next_syllable = clean(next_syllable.lower()) if next_syllable else None
+
         if len(syllable) == 0:
             continue
 

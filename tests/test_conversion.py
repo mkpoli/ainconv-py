@@ -55,6 +55,15 @@ TEST_CASES = [
         "거얘고시람쉬바",
         "keyaikosiramsuipa",
     ),
+    ("a=nukar", ["a", "nu", "kar"], "アヌカㇻ", "а=нукар", "아누카르", "anukar"),
+    (
+        "wósekamuy",
+        ["wó", "se", "ka", "mu", "y"],
+        "ウォセカムイ",
+        "вóсэкамуй",
+        "워세카무이",
+        "wosekamui",
+    ),
 ]
 
 
