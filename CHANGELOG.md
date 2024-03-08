@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added [CHANGELOG.md](CHANGELOG.md) file (this file).
+- Added [CHANGELOG.md](CHANGELOG.md) file (current file).
+- Added PyPI version badge from [Shields.io](https://shields.io/).
 
 ### Fixed
 

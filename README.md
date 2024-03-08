@@ -1,5 +1,6 @@
 # ainconv - Ainu language script converter
 
+![Version](https://img.shields.io/pypi/v/ainconv)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ainconv)
 ![GitHub issues](https://img.shields.io/github/issues/mkpoli/ainconv-py)
 ![GitHub](https://img.shields.io/github/license/mkpoli/ainconv-py)
