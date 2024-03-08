@@ -146,11 +146,8 @@ def latn2kana(
 
     result = ""
 
-    for i, syllable in enumerate(syllables):
+    for syllable in syllables:
         syllable = clean(syllable.lower())
-
-        next_syllable = syllables[i + 1] if i + 1 < len(syllables) else None
-        next_syllable = clean(next_syllable.lower()) if next_syllable else None
 
         if len(syllable) == 0:
             continue
@@ -238,9 +235,7 @@ def latn2kana(
 
         result += converted_remains or ""
 
-        ic(coda, next_syllable)
-
-        next_char = next_syllable[0] if next_syllable else None
+        nucleus = remains[-1] if remains else None
 
         converted_coda = {
             "w": "ゥ",
@@ -258,14 +253,21 @@ def latn2kana(
                 "u": "ㇽ",
                 "e": "ㇾ",
                 "o": "ㇿ",
-            }.get(next_char or "", "ㇽ"),
+            }.get(nucleus or "", "ㇽ"),
             "h": {
                 "a": "ㇵ",
                 "i": "ㇶ",
                 "u": "ㇷ",
                 "e": "ㇸ",
                 "o": "ㇹ",
-            }.get(next_char or "", "ㇷ"),
+            }.get(nucleus or "", "ㇷ"),
+            "x": {
+                "a": "ㇵ",
+                "i": "ㇶ",
+                "u": "ㇷ",
+                "e": "ㇸ",
+                "o": "ㇹ",
+            }.get(nucleus or "", "ㇷ"),
         }.get(coda, coda)
 
         result += converted_coda
