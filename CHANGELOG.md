@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added MIT License to [LICENSE](LICENSE) file.
 - Added [Sphinx](https://www.sphinx-doc.org/) documentation.
 - Added [readthedocs](https://readthedocs.org/) integration.
+- Added links to badges in [README.md](README.md).
 
 ### Fixed
 

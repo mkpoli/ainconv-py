@@ -1,11 +1,12 @@
 <!-- omit in toc -->
 # ainconv - Ainu language script converter
 
-![Version](https://img.shields.io/pypi/v/ainconv)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ainconv)
-![GitHub issues](https://img.shields.io/github/issues/mkpoli/ainconv-py)
-![GitHub](https://img.shields.io/github/license/mkpoli/ainconv-py)
-[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.aynu.org/)
+[![Version](https://img.shields.io/pypi/v/ainconv)](https://pypi.org/project/ainconv/)
+[![Downloads](https://pepy.tech/badge/ainconv)](https://pepy.tech/project/ainconv)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ainconv)](https://pypi.org/project/ainconv/)
+[![GitHub issues](https://img.shields.io/github/issues/mkpoli/ainconv-py)](https://github.com/mkpoli/ainconv-py/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/mkpoli/ainconv-py)](https://github.com/mkpoli/ainconv-py/issues)
+[![Discord](https://dcbadge.vercel.app/api/server/pkpAdPHzpP?style=flat)](https://discord.aynu.org/)
 
 <!-- omit in toc -->
 ## Table of Contents
