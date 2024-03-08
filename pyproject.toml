@@ -30,7 +30,7 @@ packages = [{ include = "ainconv", from = "src" }]
 python = "^3.12"
 more-itertools = "^10.2.0"
 
-[tool.poetry.scripts]
+[tool.poe.tasks]
 test = "pytest"
 
 [tool.poetry.group.dev.dependencies]
