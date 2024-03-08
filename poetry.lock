@@ -621,21 +621,6 @@ sphinx = ">=4.0"
 docs = ["furo", "ipython", "myst-parser", "sphinx-copybutton", "sphinx-inline-tabs"]
 
 [[package]]
-name = "sphinxawesome-theme"
-version = "5.1.1"
-description = "An awesome theme for the Sphinx documentation generator"
-optional = false
-python-versions = ">=3.8,<4.0"
-files = [
-    {file = "sphinxawesome_theme-5.1.1-py3-none-any.whl", hash = "sha256:83919c407e014638b680e1bf2d8f0eb57a4d8638e913b901167a937b56f91496"},
-    {file = "sphinxawesome_theme-5.1.1.tar.gz", hash = "sha256:836f88d04a27154196d7b3f2bfdafb96af177ff61724d429676fa8c1ee84c514"},
-]
-
-[package.dependencies]
-beautifulsoup4 = ">=4.9.1,<5.0.0"
-sphinx = {version = ">=7.2,<7.3", markers = "python_version >= \"3.9\" and python_full_version <= \"3.12.0\""}
-
-[[package]]
 name = "sphinxcontrib-applehelp"
 version = "1.0.8"
 description = "sphinxcontrib-applehelp is a Sphinx extension which outputs Apple help books"
@@ -749,4 +734,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "1e41e8c32dacfe2098416a6f1434d2c4c0677edb318ff682f47857ac15bbd925"
+content-hash = "76c1e58dcd1dcc16a4885950e369ebf4c41d75f49b6001ccc7e721e1dba42cec"
