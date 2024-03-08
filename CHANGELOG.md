@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added [CHANGELOG.md](CHANGELOG.md) file (current file).
 - Added PyPI version badge from [Shields.io](https://shields.io/).
+- Added Support section to [README.md](README.md).
+- Added Discord badge and links to [README.md](README.md).
 
 ### Fixed
 

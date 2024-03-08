@@ -4,6 +4,7 @@
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ainconv)
 ![GitHub issues](https://img.shields.io/github/issues/mkpoli/ainconv-py)
 ![GitHub](https://img.shields.io/github/license/mkpoli/ainconv-py)
+[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.aynu.org/)
 
 ## Overview
 
@@ -71,6 +72,12 @@ from ainconv import separate
 
 print(separate("eyaykosiramsuypa")) # ["e", "yay", "ko", "si", "ram", "suy", "pa"]
 ```
+
+## Support
+
+If you have a question or have found a bug or any other issue, feel free to [open an issue](https://github.com/mkpoli/ainconv-py/issues/new) to let me know. For instructions on how to contribute, see [CONTRIBUTING.md](https://github.com/mkpoli/ainconv-py/blob/master/CONTRIBUTING.md).
+
+You can also [join our Discord](https://discord.aynu.org/) for discussion. We have many projects going on about Ainu, so you may find something interesting there as well.
 
 ## License
 
