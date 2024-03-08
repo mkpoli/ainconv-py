@@ -101,20 +101,20 @@ def kana2latn(kana: str) -> str:
         latn = None
         next_char = chars.peek() if chars else None
 
-        print(current_char, next_char)
+        # print(current_char, next_char)
 
         if (
             current_char
             and next_char
             and current_char + next_char in KANA_2_LATN_DIAGRAPH
         ):
-            print(f"diagraph: {current_char + next_char = }")
+            # print(f"diagraph: {current_char + next_char = }")
             next(chars)
             latn = KANA_2_LATN_DIAGRAPH.get(current_char + next_char)
         else:
             latn = KANA_2_LATN.get(current_char)
 
-        print(f"{latn = }")
+        # print(f"{latn = }")
         result.append(latn if latn is not None else current_char)
 
     return "".join(result)
@@ -213,7 +213,7 @@ def latn2kana(text: str) -> str:
 
         result += converted_remains or ""
 
-        print(f"{coda = } {next_syllable = }")
+        # print(f"{coda = } {next_syllable = }")
 
         next_char = next_syllable[0] if next_syllable else None
 

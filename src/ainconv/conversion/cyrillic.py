@@ -74,14 +74,14 @@ def cyrl2latn(text: str) -> str:
         next_char = chars.peek() if chars else None
         next_lower = next_char.lower() if next_char else None
 
-        print(f"f{current_lower = } {next_lower = }")
+        # print(f"f{current_lower = } {next_lower = }")
 
         if current_lower == "й" and next_lower in CYRL_2_LATN_Y:
-            print("й with vowel")
+            # print("й with vowel")
             next(chars)
             cyrl = CYRL_2_LATN_Y.get(next_lower)
         else:
-            print(LATN_2_CYRL | LATN_2_CYRL_Y)
+            # print(LATN_2_CYRL | LATN_2_CYRL_Y)
 
             cyrl = next(
                 (

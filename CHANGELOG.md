@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added [CHANGELOG.md](CHANGELOG.md) file (this file).
 
+### Fixed
+
+- Fixed unexpected stdout output by removing `print` statements.
+
 ## [0.1.1] - 2024-01-01
 
 ### Fixed
