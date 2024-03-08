@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ainconv"
-version = "0.2.0"
+version = "0.3.0"
 description = "Converts Ainu text between different scripts (Katakana, Latin, Cyrillic and more)"
 authors = ["mkpoli <mkpoli@mkpo.li>"]
 license = "MIT"
@@ -36,6 +36,7 @@ doc-freeze = "poetry export --format requirements.txt --output docs/requirements
 test = "pytest"
 poetry_build = "poetry build"
 check_deps = "poetry run check_deps.py"
+changelog = "poetry run update_changelog.py"
 build = ["test", "check_deps", "poetry_build"]
 
 [tool.poetry.group.dev.dependencies]
