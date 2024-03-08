@@ -1,15 +1,8 @@
 from .conversion.latin import VOWELS, CONSONANTS
+from icecream import ic
 
 
-def separate(text: str) -> list[str]:
-    """Separate a romanized Ainu word into syllables.
-
-    Args:
-        text (str): A string that holds the romanized Ainu word.
-
-    Returns:
-        str: A list of syllables.
-    """
+def separate_word(text: str) -> list[str]:
     syllable_map = {}
     syllable_count = 1
 
@@ -37,3 +30,51 @@ def separate(text: str) -> list[str]:
     syllables.append(text[head:])
 
     return [s.replace("'", "") for s in syllables]
+
+
+def separate(text: str) -> list[str]:
+    """Separate a romanized Ainu word into syllables.
+
+    Args:
+        text (str): A string that holds the romanized Ainu word.
+
+    Returns:
+        str: A list of syllables.
+    """
+    if not text:
+        return []
+
+    result: list[str] = []
+    current_group: list[str] = []
+
+    last_alpha = text[0].isalpha()
+
+    for char in text:
+        ic(char, last_alpha, current_group, result)
+
+        current_alpha = char.isalpha()
+        ic(current_alpha, last_alpha, current_alpha == last_alpha)
+
+        if current_alpha != last_alpha:
+            if current_group:
+                joined = "".join(current_group)
+                if last_alpha:
+                    result += separate_word(joined)
+                else:
+                    result.append(joined)
+                current_group = [char]
+            else:
+                current_group.append(char)
+        else:
+            current_group.append(char)
+
+        last_alpha = current_alpha
+
+    if current_group:
+        joined = "".join(current_group)
+        if last_alpha:
+            result += separate_word(joined)
+        else:
+            result.append(joined)
+
+    return result if result[0] else result[1:]
