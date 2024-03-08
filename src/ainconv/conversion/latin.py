@@ -3,6 +3,14 @@ CONSONANTS = "ptckmnshwry’"
 
 from unicodedata import normalize
 
+ACCENTED_VOWELS = {
+    "á": "a",
+    "é": "e",
+    "í": "i",
+    "ó": "o",
+    "ú": "u",
+}
+
 
 def clean(text: str) -> str:
     """Clean up Latin script.

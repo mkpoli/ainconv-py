@@ -4,7 +4,7 @@ from icecream import ic
 
 ic.configureOutput(includeContext=True)
 
-from ..conversion.latin import CONSONANTS, clean
+from ..conversion.latin import ACCENTED_VOWELS, CONSONANTS, clean
 from ..syllable import separate
 
 KANA_2_LATN = {
@@ -148,6 +148,9 @@ def latn2kana(
 
     for syllable in syllables:
         syllable = clean(syllable.lower())
+
+        for accented, vowel in ACCENTED_VOWELS.items():
+            syllable = syllable.replace(accented, vowel)
 
         if len(syllable) == 0:
             continue
