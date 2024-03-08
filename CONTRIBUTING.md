@@ -50,9 +50,12 @@ The documentation is located at [docs/](docs/). You can make changes to the docu
 > [!NOTE]  
 > You can only publish a new version if you are a maintainer of the project and have the necessary rights to do so.
 
+> [!WARNING]
+> Do not use `poetry build` to build the package. Instead, use `poe build` to check before build to ensure that the package is ready for release.
+
 - [ ] Bump the version in `pyproject.toml` (`poetry version <version>`)
 - [ ] Update `CHANGELOG.md` is updated with the new version and the changes made from `Unreleased`.
 - [ ] Stage and commit the changes (`git commit -am "Bump version <version>"`)
 - [ ] Create a new tag (`git tag -a <version> -m "Version <version>"`) and push it (`git push --tags`)
-- [ ] Build and publish the package (`poetry build` and `poetry publish`)
+- [ ] Build and publish the package (`poe build` and `poetry publish`)
 - [ ] Create a new release on GitHub with the release notes from `CHANGELOG.md`
