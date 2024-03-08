@@ -58,7 +58,10 @@ def latn2cyrl(text: str) -> str:
         else:
             cyrl = LATN_2_CYRL.get(current_lower)
 
-        result.append(cyrl if cyrl is not None else current_char)
+        cyrl = cyrl or current_char
+        cyrl = cyrl.upper() if current_char.isupper() else cyrl
+
+        result.append(cyrl)
 
     return "".join(result)
 
@@ -70,7 +73,7 @@ def cyrl2latn(text: str) -> str:
 
     for current_char in chars:
         current_lower = current_char.lower()
-        cyrl = None
+        latn = None
         next_char = chars.peek() if chars else None
         next_lower = next_char.lower() if next_char else None
 
@@ -79,11 +82,11 @@ def cyrl2latn(text: str) -> str:
         if current_lower == "й" and next_lower in CYRL_2_LATN_Y:
             # print("й with vowel")
             next(chars)
-            cyrl = CYRL_2_LATN_Y.get(next_lower)
+            latn = CYRL_2_LATN_Y.get(next_lower)
         else:
             # print(LATN_2_CYRL | LATN_2_CYRL_Y)
 
-            cyrl = next(
+            latn = next(
                 (
                     latn
                     for latn, cyrl in (LATN_2_CYRL | LATN_2_CYRL_Y_WITH_Y).items()
@@ -92,6 +95,9 @@ def cyrl2latn(text: str) -> str:
                 None,
             )
 
-        result.append(cyrl if cyrl is not None else current_char)
+        latn = latn or current_char
+        latn = latn.upper() if current_char.isupper() else latn
+
+        result.append(latn if latn is not None else current_char)
 
     return "".join(result)
