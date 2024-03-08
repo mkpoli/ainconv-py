@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added [Poe the Poet](https://github.com/nat-n/poethepoet) guidance in [CONTRIBUTING.md](CONTRIBUTING.md).
 - Added check script for potential usage of dev-dependencies before release.
 - Added links to [readthedocs](https://readthedocs.org/) in [README.md](README.md) and [pyproject.toml](pyproject.toml).
 

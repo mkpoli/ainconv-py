@@ -32,9 +32,10 @@ If you have an idea for a new feature or an enhancement to an existing feature, 
 General steps to contribute to the project:
 
 1. Fork the repository and clone it locally.
-2. Install [Poetry](https://python-poetry.org/docs/) and run `poetry install` to install the dependencies.
-3. Make your changes and run `poetry run pytest` to run the tests.
-4. Submit a pull request to the main repository.
+2. Install [Poetry](https://python-poetry.org/docs/) and install the dependencies. (`pipx install poetry` and `poetry install`)
+3. Install [Poe the Poet](https://github.com/nat-n/poethepoet) for tasks automation. (`pipx install poethepoet`)
+4. Make your changes and run `poe run test` to run the tests.
+5. Submit a pull request to the main repository.
 
 ### Making Changes
 
