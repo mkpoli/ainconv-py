@@ -6,6 +6,7 @@ authors = ["mkpoli <mkpoli@mkpo.li>"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/mkpoli/ainconv"
+documentation = "https://ainconv-py.readthedocs.io/en/latest/"
 keywords = [
     "ainu",
     "converter",

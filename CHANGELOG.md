@@ -7,9 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added links to [readthedocs](https://readthedocs.org/) in [README.md](README.md) and [pyproject.toml](pyproject.toml).
+
 ### Fixed
 
 - Fixed doc build error due to missing dependencies.
+
+### Removed
+
+- Removed Python version badge from [README.md](README.md).
 
 ## [0.2.0] - 2024-03-09
 

@@ -3,7 +3,7 @@
 
 [![Version](https://img.shields.io/pypi/v/ainconv)](https://pypi.org/project/ainconv/)
 [![Downloads](https://pepy.tech/badge/ainconv)](https://pepy.tech/project/ainconv)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ainconv)](https://pypi.org/project/ainconv/)
+[![Read the Docs](https://img.shields.io/readthedocs/ainconv-py)](https://ainconv-py.readthedocs.io/)
 [![GitHub issues](https://img.shields.io/github/issues/mkpoli/ainconv-py)](https://github.com/mkpoli/ainconv-py/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/mkpoli/ainconv-py)](https://github.com/mkpoli/ainconv-py/issues)
 [![Discord](https://dcbadge.vercel.app/api/server/pkpAdPHzpP?style=flat)](https://discord.aynu.org/)
@@ -46,6 +46,9 @@ pip install ainconv
 ```
 
 ## Usage
+
+> [!NOTE]
+> You can also read the full documentation on [Read the Docs](https://ainconv-py.readthedocs.io/).
 
 ### Word Conversion
 
