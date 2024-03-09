@@ -8,6 +8,7 @@
 [![MIT License](https://img.shields.io/pypi/l/ainconv)](./LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/mkpoli/ainconv-py)](https://github.com/mkpoli/ainconv-py/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/mkpoli/ainconv-py)](https://github.com/mkpoli/ainconv-py/issues)
+[![test](https://github.com/mkpoli/ainconv-py/actions/workflows/test.yml/badge.svg)](https://github.com/mkpoli/ainconv-py/actions/workflows/test.yml)
 [![Discord](https://dcbadge.vercel.app/api/server/pkpAdPHzpP?style=flat)](https://discord.aynu.org/)
 
 <!-- omit in toc -->
