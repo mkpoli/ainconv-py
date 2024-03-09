@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added more badges to [README.md](README.md).
+- Added [tox](https://tox.readthedocs.io/) for multi-environment testing.
 
 ## [0.3.0] - 2024-03-09
 

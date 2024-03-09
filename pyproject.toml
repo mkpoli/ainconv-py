@@ -28,7 +28,7 @@ classifiers = [
 packages = [{ include = "ainconv", from = "src" }]
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.8"
 more-itertools = "^10.2.0"
 
 [tool.poe.tasks]
