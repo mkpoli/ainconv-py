@@ -30,6 +30,10 @@
 
 ## Overview
 
+
+> [!IMPORTANT]
+> By default, conversions between Katakana to and from any script are inherently lossy. See [Important Note](#important-note) for more details.
+
 This package provides a comprehensive set of functions for converting text between different writing systems of the [Ainu language](https://en.wikipedia.org/wiki/Ainu_language).
 
 Currently, Latin (Romanization), Katakana and Cyrillic scripts are supported. We are also planning to convert between different romanization systems and Katakana variants. Currently only the more adopted version of Latin script and lossy Katakana script are supported.
@@ -38,9 +42,11 @@ Sentence conversion is planned to be supported in the future. For now, only well
 
 ### Important Note
 
-Conversion between Latin and Cyrillic script are lossless, however, conversion between Katakana and other scripts are lossy. This means that converting from Katakana to other scripts and then back to Katakana may not give the original string and the result may be ambiguous or even incorrect.
+Conversion between Latin and Cyrillic script are lossless, however, conversion between Katakana and any other scripts are lossy. This means that converting from Katakana to other scripts and then back to Katakana may not give the original string and the result may be ambiguous or even incorrect.
 
-This is because the Katakana script used broadly for the Ainu language is intrinsically ambiguous. For example, it does not distinguish between *tow* and *tu* (both *トゥ*), *iw* and *i.u* (both *イウ*), *ay* and *a.i* (both *アイ*), etc. Some alternative Katakana scripts are proposed to solve this problem, but none of them are widely adopted. We are planning to support some of these alternative scripts in the future.
+This is because the most widely used Katakana orthography for the Ainu language is intrinsically ambiguous. For example, *tow* and *tu* are both *トゥ*, *iw* and *i.u* are both *イウ*, *ay* and *a.i* are both *アイ*, etc. Some alternative Katakana scripts are proposed to solve this problem, but none of them are widely adopted.
+
+We already added some options (see [Conversion Options](#conversion-options)) for Katakana output and are planning to support others to mitigate this problem. However, since Katakana orthography still contains less information than Latin orthography, you cannot get the original text back from the converted text, distinctions such as `-w`, `-y` and `-n` (with options off), `=` and `-` symbols, letter case, etc. are lost in the conversion. Additionally, Katakana text from elsewhere usually does not contain these distinctions, so converting losslessly from Katakana to other scripts is impossible.
 
 ## Installation
 
@@ -85,13 +91,21 @@ print(kana2cyrl("イランカラㇷ゚テ")) # "иранкараптэ"
 ```python
 from ainconv import latn2kana
 
-# Use ヰ (wi), ヱ (we) and ヲ (wo) in conversion
+# Use ィ (-y), ゥ (-w) and ㇴ (-n)
+assert latn2kana("kay") == "カイ"
+assert latn2kana("kay", use_small_i=True) == "カィ"
+assert latn2kana("kew") == "ケウ"
+assert latn2kana("kew", use_small_u=True) == "ケゥ"
+assert latn2kana("mun") == "ムン"
+assert latn2kana("mun", use_small_n=True) == "ムㇴ"
+
+# Use ヰ (wi), ヱ (we) and ヲ (wo) 
 assert latn2kana("wiki") == "ウィキ"  # for loanwords only
 assert latn2kana("wiki", use_wi=True) == "ヰキ"
-assert latn2kana("wenpe") == "ウェンペ"
-assert latn2kana("wenpe", use_we=True) == "ヱンペ"
-assert latn2kana("wose") == "ウォセ"
-assert latn2kana("wose", use_wo=True) == "ヲセ"
+assert latn2kana("weni") == "ウェニ"
+assert latn2kana("weni", use_we=True) == "ヱニ"
+assert latn2kana("wóse") == "ウォセ"
+assert latn2kana("wóse", use_wo=True) == "ヲセ"
 
 assert latn2kana("wiwewo") == "ウィウェウォ"
 assert latn2kana("wiwewo", use_wi=True, use_we=True, use_wo=True) == "ヰヱヲ"
