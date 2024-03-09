@@ -3,7 +3,9 @@
 
 [![Version](https://img.shields.io/pypi/v/ainconv)](https://pypi.org/project/ainconv/)
 [![Downloads](https://pepy.tech/badge/ainconv)](https://pepy.tech/project/ainconv)
+[![Python Versions](https://img.shields.io/pypi/pyversions/ainconv)](https://pypi.org/project/ainconv/)
 [![Read the Docs](https://img.shields.io/readthedocs/ainconv-py)](https://ainconv-py.readthedocs.io/)
+[![MIT License](https://img.shields.io/pypi/l/ainconv)](./LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/mkpoli/ainconv-py)](https://github.com/mkpoli/ainconv-py/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/mkpoli/ainconv-py)](https://github.com/mkpoli/ainconv-py/issues)
 [![Discord](https://dcbadge.vercel.app/api/server/pkpAdPHzpP?style=flat)](https://discord.aynu.org/)
