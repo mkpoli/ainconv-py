@@ -91,15 +91,23 @@ def test_latn2kana() -> None:
 
     # Test variations
 
-    ## wi we wo
+    ## -y, -w, -n
+    assert latn2kana("kay") == "カイ"
+    assert latn2kana("kay", use_small_i=True) == "カィ"
+    assert latn2kana("kew") == "ケウ"
+    assert latn2kana("kew", use_small_u=True) == "ケゥ"
+    assert latn2kana("mun") == "ムン"
+    assert latn2kana("mun", use_small_n=True) == "ムㇴ"
+
+    ## wi, we, wo
     assert latn2kana("wiki") == "ウィキ"  # for loanwords only
     assert latn2kana("wiki", use_wi=True) == "ヰキ"
-    assert latn2kana("wenpe") == "ウェンペ"
-    assert latn2kana("wenpe", use_we=True) == "ヱンペ"
+    assert latn2kana("weni") == "ウェニ"
+    assert latn2kana("weni", use_we=True) == "ヱニ"
     assert latn2kana("wose") == "ウォセ"
     assert latn2kana("wose", use_wo=True) == "ヲセ"
-    # assert latn2kana("wósekamuy") == "ウォセカムイ"
-    # assert latn2kana("wósekamuy", use_wo=True) == "ヲセカムイ"
+    assert latn2kana("wósekamuy") == "ウォセカムイ"
+    assert latn2kana("wósekamuy", use_wo=True) == "ヲセカムイ"
     assert latn2kana("wiwewo") == "ウィウェウォ"
     assert latn2kana("wiwewo", use_wi=True, use_we=True, use_wo=True) == "ヰヱヲ"
 

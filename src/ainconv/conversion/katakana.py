@@ -129,14 +129,20 @@ def latn2kana(
     use_wi: bool = False,
     use_we: bool = False,
     use_wo: bool = False,
+    use_small_i: bool = False,
+    use_small_u: bool = False,
+    use_small_n: bool = False,
 ) -> str:
     """Converts Latin script to Katakana script.
 
     Args:
         text (str): The Latin script to be converted.
-        use_wi (bool): Whether to use "ヰ" (wi) instead of "ウィ" (wi).
-        use_we (bool): Whether to use "ヱ" (we) instead of "ウェ" (we).
-        use_wo (bool): Whether to use "ヲ" (wo) instead of "ウォ" (wo).
+        use_wi (bool): Whether to use "ヰ" (wi) instead of "ウィ" (wi), e.g. "wiki" -> "ヰキ" instead of "ウィキ".
+        use_we (bool): Whether to use "ヱ" (we) instead of "ウェ" (we), e.g. "weni" -> "ヱニ" instead of "ウェニ".
+        use_wo (bool): Whether to use "ヲ" (wo) instead of "ウォ" (wo). e.g. "wóse" -> "ヲセ" instead of "ウォセ".
+        use_small_i (bool): Whether to use "ィ" (y) instead of "イ" for -y, e.g. "kay" -> "カィ" instead of "カイ".
+        use_small_u (bool): Whether to use "ゥ" (w) instead of "ウ" for -w, e.g. "kew" -> "ケゥ" instead of "ケウ".
+        use_small_n (bool): Whether to use "ン" (n) instead of "ㇴ" for -n, e.g. "mun" -> "ムン" instead of "ムㇴ".
 
     Returns:
         str: The converted Katakana script.
@@ -281,7 +287,12 @@ def latn2kana(
 
         # ic(result)
 
-    result = result.replace("ィ", "イ").replace("ゥ", "ウ").replace("ㇴ", "ン")
+    if not use_small_i:
+        result = result.replace("ィ", "イ")
+    if not use_small_u:
+        result = result.replace("ゥ", "ウ")
+    if not use_small_n:
+        result = result.replace("ㇴ", "ン")
 
     # Replace wi, we, wo
     if not use_wi:
