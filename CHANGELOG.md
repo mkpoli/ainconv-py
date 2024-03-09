@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added conversion between Katakana and Cyrillic scripts.
+- Added support from Python 3.8 and above.
 - Added more badges to [README.md](README.md).
 - Added [tox](https://tox.readthedocs.io/) for multi-environment testing.
 
