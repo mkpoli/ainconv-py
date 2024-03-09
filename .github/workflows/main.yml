@@ -13,11 +13,11 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: ${{ matrix.python-version }}
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          python -m pip install tox tox-gh-actions
-      - name: Check package setup
-        run: python setup.py check
-      - name: Test
-        run: tox
+          poetry run pip install --upgrade pip setuptools
+          poetry install
+      - name: Run tox
+        run: poetry run tox
