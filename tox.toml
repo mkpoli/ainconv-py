@@ -1,0 +1,14 @@
+requires = ["tox>=4", "tox-uv>=1"]
+envlist = ["py39", "py310", "py311", "py312", "py313"]
+
+[env_run_base]
+description = "run tests"
+deps = ["pytest>=8", "pytest-sugar"]
+commands = [
+    [
+        "pytest",
+        { replace = "posargs", default = [
+            "tests",
+        ], extend = true },
+    ],
+]

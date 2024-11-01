@@ -19,7 +19,6 @@ dev = [
     { name = "sphinx" },
     { name = "toml" },
     { name = "tox" },
-    { name = "tox-gh-actions" },
 ]
 
 [package.metadata]
@@ -35,7 +34,6 @@ dev = [
     { name = "sphinx", specifier = ">=7.2.6,<8.0.0" },
     { name = "toml", specifier = ">=0.10.2,<1.0.0" },
     { name = "tox", specifier = ">=4.14.1,<5.0.0" },
-    { name = "tox-gh-actions", specifier = ">=3.2.0,<4.0.0" },
 ]
 
 [[package]]
@@ -770,18 +768,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/1f/86/32b10f91b4b975a37ac402b0f9fa016775088e0565c93602ba0b3c729ce8/tox-4.23.2.tar.gz", hash = "sha256:86075e00e555df6e82e74cfc333917f91ecb47ffbc868dcafbd2672e332f4a2c", size = 189998 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/af/c0/124b73d01c120e917383bc6c53ebc34efdf7243faa9fca64d105c94cf2ab/tox-4.23.2-py3-none-any.whl", hash = "sha256:452bc32bb031f2282881a2118923176445bac783ab97c874b8770ab4c3b76c38", size = 166758 },
-]
-
-[[package]]
-name = "tox-gh-actions"
-version = "3.2.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "tox" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/5b/a1/3e7b3185031f905ddfc0c65dfd85949dae612a4387cbacb286b9f2931314/tox-gh-actions-3.2.0.tar.gz", hash = "sha256:ac6fa3b8da51bc90dd77985fd55f09e746c6558c55910c0a93d643045a2b0ccc", size = 18834 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/b9/7a/d59f4eb08d156787af19fb44371586fd8b25580a1837ce92ae203a847c49/tox_gh_actions-3.2.0-py2.py3-none-any.whl", hash = "sha256:821b66a4751a788fa3e9617bd796d696507b08c6e1d929ee4faefba06b73b694", size = 9951 },
 ]
 
 [[package]]
