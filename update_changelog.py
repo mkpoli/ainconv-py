@@ -16,7 +16,7 @@ CHANGELOG = Path("CHANGELOG.md")
 
 # Replace Unreleased with current version number
 def main():
-    current_version = pyproject.get("tool", {}).get("poetry", {}).get("version")
+    current_version = pyproject.get("project", {}).get("version")
     if not current_version:
         sys.exit("No version found in pyproject.toml")
 

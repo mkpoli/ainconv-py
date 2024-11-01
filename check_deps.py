@@ -1,9 +1,11 @@
+"""
+Check for dev dependencies in production code.
+"""
+
 import tomllib
 from pathlib import Path
 import sys
 
-from importlib.metadata import packages_distributions
-from typing import List, Dict, Iterable
 from modulefinder import ModuleFinder
 import importlib.metadata
 
@@ -16,10 +18,8 @@ with open(project_file, "rb") as file:
 # Extract dev-dependencies
 dev_deps = (
     pyproject.get("tool", {})
-    .get("poetry", {})
-    .get("group", {})
-    .get("dev", {})
-    .get("dependencies", [])
+    .get("uv", {})
+    .get("dev-dependencies", [])
 )
 print(f"Dev dependencies: {dev_deps}")
 
@@ -33,7 +33,7 @@ def check_for_dev_deps_in_code(dev_deps, directories):
 
     for directory in directories:
         for path in Path(directory).rglob("*.py"):
-            print(f"Checking {path}")
+            print(f"Checking {path} ...")
 
             with path.open() as file:
                 finder.run_script(str(path))
@@ -41,8 +41,10 @@ def check_for_dev_deps_in_code(dev_deps, directories):
                     package = module_2_package.get(name, [])
 
                     if any(dep in package for dep in dev_deps):
-                        print(f"Dev dependency found in production code: {name}")
+                        print(f"❌ Dev dependency found in production code: {name}")
                         return True
+    else:
+        print("✅ No dev dependencies found in production code.")
 
     return False
 
