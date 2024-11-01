@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added automatic apostrophe insertion in Katakana to Latin conversion.
 - Added -y (ey, oy, uy) support for diphthongs in Katakana to Latin conversion.
+- Added word level romanization for Katakana to Latin conversion.
 
 ## [0.4.0] - 2024-03-09
 

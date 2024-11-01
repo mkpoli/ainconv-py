@@ -1,5 +1,8 @@
 from more_itertools import peekable
 
+from ..utils import is_vowel, split_words
+
+
 # from icecream import ic
 
 # ic.configureOutput(includeContext=True)
@@ -99,50 +102,50 @@ KANA_2_LATN_DIAGRAPH = {
 }
 
 
-def is_vowel(char: str):
-    return char in "aiueoáíúéóāīūēō"
-
-
 def kana2latn(kana: str) -> str:
     """Converts Katakana script to Latin script."""
-    result = []
-    chars = peekable(kana)
 
-    for current_char in chars:
-        latn = None
-        next_char = chars.peek() if chars else None
+    def convert_word(word: str):
+        result = []
+        chars = peekable(word)
 
-        # print(current_char, next_char)
+        for current_char in chars:
+            latn = None
+            next_char = chars.peek() if chars else None
 
-        if (
-            current_char
-            and next_char
-            and current_char + next_char in KANA_2_LATN_DIAGRAPH
-        ):
-            # print(f"diagraph: {current_char + next_char = }")
-            next(chars)
-            latn = KANA_2_LATN_DIAGRAPH.get(current_char + next_char)
-        else:
-            latn = KANA_2_LATN.get(current_char)
+            # print(current_char, next_char)
 
-        # print(f"{latn = }")
-        result.append(latn if latn is not None else current_char)
+            if (
+                current_char
+                and next_char
+                and current_char + next_char in KANA_2_LATN_DIAGRAPH
+            ):
+                # print(f"diagraph: {current_char + next_char = }")
+                next(chars)
+                latn = KANA_2_LATN_DIAGRAPH.get(current_char + next_char)
+            else:
+                latn = KANA_2_LATN.get(current_char)
 
-    joined = "’".join(result)
+            # print(f"{latn = }")
+            result.append(latn if latn is not None else current_char)
 
-    result = []
-    for i, char in enumerate(joined):
-        print(i, char)
-        if char == "’":
-            if i > 0 and is_vowel(joined[i - 1]):
-                # If the previous character is not a consonant, remove the apostrophe\
-                continue
-            if i < len(joined) - 1 and not is_vowel(joined[i + 1]):
-                # If the next character is not a vowel, remove the apostrophe
-                continue
-        result.append(char)
+        joined = "’".join(result)
 
-    return "".join(result)
+        result = []
+        for i, char in enumerate(joined):
+            print(i, char)
+            if char == "’":
+                if i > 0 and is_vowel(joined[i - 1]):
+                    # If the previous character is not a consonant, remove the apostrophe\
+                    continue
+                if i < len(joined) - 1 and not is_vowel(joined[i + 1]):
+                    # If the next character is not a vowel, remove the apostrophe
+                    continue
+            result.append(char)
+
+        return "".join(result)
+
+    return "".join(convert_word(word) for word in split_words(kana))
 
 
 def latn2kana(
