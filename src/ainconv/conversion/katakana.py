@@ -93,7 +93,14 @@ KANA_2_LATN_DIAGRAPH = {
     "チュ": "cu",
     "チェ": "ce",
     "チョ": "co",
+    "エイ": "ey",
+    "オイ": "oy",
+    "ウイ": "uy",
 }
+
+
+def is_vowel(char: str):
+    return char in "aiueoáíúéóāīūēō"
 
 
 def kana2latn(kana: str) -> str:
@@ -120,6 +127,20 @@ def kana2latn(kana: str) -> str:
 
         # print(f"{latn = }")
         result.append(latn if latn is not None else current_char)
+
+    joined = "’".join(result)
+
+    result = []
+    for i, char in enumerate(joined):
+        print(i, char)
+        if char == "’":
+            if i > 0 and is_vowel(joined[i - 1]):
+                # If the previous character is not a consonant, remove the apostrophe\
+                continue
+            if i < len(joined) - 1 and not is_vowel(joined[i + 1]):
+                # If the next character is not a vowel, remove the apostrophe
+                continue
+        result.append(char)
 
     return "".join(result)
 
