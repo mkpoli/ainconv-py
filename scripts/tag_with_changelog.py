@@ -56,7 +56,7 @@ def get_current_release(changelog_text: str, current_version: str):
     )
     if not current_release:
         raise ValueError(
-            f"Current release `{current_version}` not found in the document, available releases: {', '.join(Fore.YELLOW + h[0] + Fore.RESET for h in release_headings)}"
+            f"Current release `{current_version}` not found in the document, available releases: {', '.join(Fore.YELLOW + h[0]  for h in release_headings)}{Fore.RESET}"
         )
     current_release_heading_index = release_headings.index(current_release)
 
@@ -94,7 +94,17 @@ def main():
         f"[{PROGRAM_NAME}] latest_release extracted ({Fore.YELLOW}{len(latest_release)}{Fore.RESET} characters, {Fore.YELLOW}`{latest_release.splitlines()[0]}`{Fore.RESET}...)"
     )
 
-    subprocess.run(["git", "tag", "-a", f"v{current_version}", "-m", latest_release])
+    subprocess.run(
+        [
+            "git",
+            "tag",
+            "-a",
+            f"v{current_version}",
+            "-m",
+            latest_release,
+            "--cleanup=whitespace",
+        ]
+    )
 
 
 if __name__ == "__main__":
