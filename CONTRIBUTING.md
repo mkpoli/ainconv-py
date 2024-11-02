@@ -53,10 +53,13 @@ The documentation is located at [docs/](docs/). You can make changes to the docu
 > [!WARNING]
 > Do not use `poetry build` to build the package. Instead, use `poe build` to check before build to ensure that the package is ready for release.
 
-- [ ] Bump the version in `pyproject.toml` (`poetry version <version>`)
+<!-- - [ ] Bump the version in `pyproject.toml` (`poetry version <version>`)
 - [ ] Update `CHANGELOG.md` with the new version from `Unreleased`. (`poe changelog`)
-- [ ] Stage and commit the changes (`git commit -am "Bump version to <version>"`)
-- [ ] Check and build the package. (`poe build`)
-- [ ] Create a new tag (`git tag -a <version> -m "Version <version>"`) and push it (`git push --tags`)
-- [ ] Publish the package to PyPI (and `poetry publish`)
-- [ ] Create a new release on GitHub with the release notes from `CHANGELOG.md`
+- [ ] Stage and commit the changes (`git commit -am "Bump version to <version>"`) -->
+- [ ] Commit all changes in working tree.
+- [ ] Check and build the package. (`uv run poe build`)
+- [ ] Bump, commit and tag the version. (`uv run poe bump`)
+- [ ] Push the changes to the remote repository. (`git push --follow-tags`)
+<!-- - [ ] Create a new tag (`git tag -a <version> -m "Version <version>"`) and push it (`git push --tags`) -->
+<!-- - [ ] Publish the package to PyPI (and `uv publish`) -->
+<!-- - [ ] Create a new release on GitHub with the release notes from `CHANGELOG.md` -->
