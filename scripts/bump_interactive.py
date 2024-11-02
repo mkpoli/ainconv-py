@@ -159,7 +159,7 @@ def main():
 
     print()
 
-    print("Successfully bumped version to v{new_version_str}.")
+    print(f"Successfully bumped version to {Fore.BLUE}v{new_version_str}{Fore.RESET}.")
 
 
 if __name__ == "__main__":
