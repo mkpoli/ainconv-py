@@ -83,8 +83,8 @@ post_commit_hooks = ["uv run poe tag"]
 
 [[tool.bumpversion.files]]
 filename = "CHANGELOG.md"
-search = "## \\[Unreleased\\]"
-replace = "## \\[{new_version}\\] - {now:%Y-%m-%d}"
+search = "## [Unreleased]"
+replace = "## [{new_version}] - {now:%Y-%m-%d}"
 
 [[tool.bumpversion.files]]
 filename = "pyproject.toml"
