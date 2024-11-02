@@ -58,7 +58,7 @@ The documentation is located at [docs/](docs/). You can make changes to the docu
 - [ ] Stage and commit the changes (`git commit -am "Bump version to <version>"`) -->
 - [ ] Commit all changes in working tree.
 - [ ] Check and build the package. (`uv run poe build`)
-- [ ] Bump, commit and tag the version. (`uv run poe bump`)
+- [ ] Bump, commit and tag the version automatically. (`uv run poe bump` for interactive bump, or `uv run bump-my-version bump patch`, etc. for non-interactive bump)
 - [ ] Push the changes to the remote repository. (`git push --follow-tags`)
 <!-- - [ ] Create a new tag (`git tag -a <version> -m "Version <version>"`) and push it (`git push --tags`) -->
 <!-- - [ ] Publish the package to PyPI (and `uv publish`) -->

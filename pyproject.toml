@@ -38,8 +38,8 @@ build_package = "uv build"
 check_deps = "uv run scripts/check_deps.py"
 changelog = "uv run scripts/update_changelog.py"
 tag = "uv run scripts/tag_with_changelog.py"
+bump = "uv run scripts/bump_interactive.py"
 build = ["test", "check_deps", "build_package"]
-bump = "uv run bump-my-version bump"
 
 [tool.uv]
 dev-dependencies = [
@@ -53,6 +53,8 @@ dev-dependencies = [
     "poethepoet>=0.29.0",
     "bump-my-version>=0.28.0",
     "mistletoe>=1.4.0",
+    "inquirer>=3.4.0",
+    "colorama>=0.4.6",
 ]
 
 [[tool.mypy.overrides]]
@@ -79,3 +81,13 @@ commit_args = ""
 setup_hooks = []
 pre_commit_hooks = ["uv run poe changelog", "uv sync", "git add uv.lock"]
 post_commit_hooks = ["uv run poe tag"]
+
+[[tool.bumpversion.files]]
+filename = "CHANGELOG.md"
+search = "## \\[Unreleased\\]"
+replace = "## \\[{new_version}\\] - {now:%Y-%m-%d}"
+
+[[tool.bumpversion.files]]
+filename = "pyproject.toml"
+search = "version = \"{current_version}\""
+replace = "version = \"{new_version}\""
