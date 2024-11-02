@@ -35,8 +35,8 @@ documentation = "https://ainconv-py.readthedocs.io/en/latest/"
 doc-freeze = "uv export --format requirements.txt --output docs/requirements.txt --without-hashes --with dev"
 test = "pytest"
 build_package = "uv build"
-check_deps = "uv run check_deps.py"
-changelog = "uv run update_changelog.py"
+check_deps = "uv run scripts/check_deps.py"
+changelog = "uv run scripts/update_changelog.py"
 build = ["test", "check_deps", "build_package"]
 bump = "uv run bump-my-version bump"
 
