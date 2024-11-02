@@ -56,7 +56,7 @@ def get_current_release(changelog_text: str, current_version: str):
     )
     if not current_release:
         raise ValueError(
-            f"Current release `{current_version}` not found in the document"
+            f"Current release `{current_version}` not found in the document, available releases: {', '.join(Fore.YELLOW + h[0] + Fore.RESET for h in release_headings)}"
         )
     current_release_heading_index = release_headings.index(current_release)
 
