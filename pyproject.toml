@@ -36,7 +36,6 @@ doc-freeze = "uv export --format requirements.txt --output docs/requirements.txt
 test = "pytest"
 build_package = "uv build"
 check_deps = "uv run scripts/check_deps.py"
-changelog = "uv run scripts/update_changelog.py"
 tag = "uv run scripts/tag_with_changelog.py"
 bump = "uv run scripts/bump_interactive.py"
 build = ["test", "check_deps", "build_package"]
@@ -79,7 +78,7 @@ commit = true
 message = "Bump version to v{new_version}"
 commit_args = ""
 setup_hooks = []
-pre_commit_hooks = ["uv run poe changelog", "uv sync", "git add uv.lock"]
+pre_commit_hooks = ["uv sync", "git add uv.lock"]
 post_commit_hooks = ["uv run poe tag"]
 
 [[tool.bumpversion.files]]
