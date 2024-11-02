@@ -3,6 +3,8 @@ import re
 import subprocess
 import toml
 
+from colorama import Fore
+
 from pathlib import Path
 
 logging.basicConfig(level=logging.INFO)
@@ -78,13 +80,18 @@ def get_current_release(changelog_text: str, current_version: str):
 def main():
     with open("CHANGELOG.md", "r") as file:
         changelog = file.read()
+    logger.info(
+        f"[{PROGRAM_NAME}] Successfully read {Fore.YELLOW}`CHANGELOG.md`{Fore.RESET} file"
+    )
 
     current_version = toml.load("pyproject.toml")["project"]["version"]
-    logger.info(f"[{PROGRAM_NAME}] current_version: {current_version}")
+    logger.info(
+        f"[{PROGRAM_NAME}] Current version is {Fore.YELLOW}`{current_version}`{Fore.RESET}"
+    )
 
     latest_release = get_current_release(changelog, current_version)
-    logging.info(
-        f"[{PROGRAM_NAME}] latest_release extracted ({len(latest_release)} characters, `{latest_release.splitlines()[0]}`...)"
+    logger.info(
+        f"[{PROGRAM_NAME}] latest_release extracted ({Fore.YELLOW}{len(latest_release)}{Fore.RESET} characters, {Fore.YELLOW}`{latest_release.splitlines()[0]}`{Fore.RESET}...)"
     )
 
     subprocess.run(["git", "tag", "-a", f"v{current_version}", "-m", latest_release])
