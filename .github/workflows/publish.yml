@@ -34,13 +34,15 @@ jobs:
       # git tag -n999 -l v0.5.0 | sed 's/^v0.5.0 */    /' | sed 's/^    //'
 
       - name: Get tag name
-        run:
+        run: |
           echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
           echo "TAG_NAME=$TAG_NAME"
+
       - name: Get version
-      run: |
-        echo "TAG_VERSION=${TAG_NAME#v}" >> $GITHUB_ENV
-        echo "TAG_VERSION=$TAG_VERSION"
+        run: |
+          echo "TAG_VERSION=${TAG_NAME#v}" >> $GITHUB_ENV
+          echo "TAG_VERSION=$TAG_VERSION"
+
       - name: Acquire tag message
         run: |
           git fetch --depth=1 origin +refs/tags/*:refs/tags/*
