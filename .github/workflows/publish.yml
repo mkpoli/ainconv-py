@@ -34,11 +34,12 @@ jobs:
 
       - name: Get tag name
         run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
-
       - name: Acquire tag message
         run: |
           git fetch --depth=1 origin +refs/tags/*:refs/tags/*
-          echo "TAG_MESSAGE=$(git tag -n999 -l ${{ env.TAG_NAME }} | sed "s/^${{ env.TAG_NAME }} */    /" | sed 's/^    //')" >> $GITHUB_ENV
+          echo "TAG_MESSAGE<<EOF" >> $GITHUB_ENV
+          git tag -n999 -l ${{ env.TAG_NAME }} | sed "s/^${{ env.TAG_NAME }} */    /" | sed 's/^    //' >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 
       - name: Release
         uses: softprops/action-gh-release@v2
