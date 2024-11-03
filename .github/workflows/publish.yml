@@ -40,6 +40,7 @@ jobs:
           echo "TAG_MESSAGE<<EOF" >> $GITHUB_ENV
           git tag -n999 -l ${{ env.TAG_NAME }} | sed "s/^${{ env.TAG_NAME }} */    /" | sed 's/^    //' >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
+          echo "$TAG_MESSAGE"
 
       - name: Release
         uses: softprops/action-gh-release@v2
