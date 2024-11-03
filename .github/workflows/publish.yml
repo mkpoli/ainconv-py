@@ -34,7 +34,13 @@ jobs:
       # git tag -n999 -l v0.5.0 | sed 's/^v0.5.0 */    /' | sed 's/^    //'
 
       - name: Get tag name
-        run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+        run:
+          echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+          echo "TAG_NAME=$TAG_NAME"
+      - name: Get version
+      run: |
+        echo "TAG_VERSION=${TAG_NAME#v}" >> $GITHUB_ENV
+        echo "TAG_VERSION=$TAG_VERSION"
       - name: Acquire tag message
         run: |
           git fetch --depth=1 origin +refs/tags/*:refs/tags/*
@@ -48,8 +54,8 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            'dist/*.whl'
-            'dist/*.tar.gz'
+            'dist/ainconv-${{ env.TAG_VERSION }}-py3-none-any.whl'
+            'dist/ainconv-${{ env.TAG_VERSION }}.tar.gz'
           body: ${{ env.TAG_MESSAGE }}
 
       - name: Upload to PyPI
