@@ -29,3 +29,18 @@ def split_words(s):
             current_is_letter = is_letter(c)
     result.append(current)
     return result
+
+
+ACCENTS_COMBINATIONS = {
+    "á": "á",
+    "é": "é",
+    "ó": "ó",
+    "ú": "ú",
+    "í": "í",
+}
+
+
+def combine_accents(s: str):
+    for k, v in ACCENTS_COMBINATIONS.items():
+        s = s.replace(k, v)
+    return s

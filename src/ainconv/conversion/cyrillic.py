@@ -1,11 +1,18 @@
 from more_itertools import peekable
 
+from ..utils import combine_accents
+
 LATN_2_CYRL = {
     "a": "а",
+    "á": "а́",
     "i": "и",
+    "í": "и́",
     "u": "у",
+    "ú": "у́",
     "e": "э",
+    "é": "э́",
     "o": "о",
+    "ó": "о́",
     "k": "к",
     "s": "с",
     "t": "т",
@@ -100,4 +107,4 @@ def cyrl2latn(text: str) -> str:
 
         result.append(latn if latn is not None else current_char)
 
-    return "".join(result)
+    return combine_accents("".join(result))

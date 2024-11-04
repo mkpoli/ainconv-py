@@ -1,6 +1,12 @@
 import pytest
 
-from src.ainconv.utils import is_vowel, is_consonant, is_letter, split_words
+from src.ainconv.utils import (
+    combine_accents,
+    is_vowel,
+    is_consonant,
+    is_letter,
+    split_words,
+)
 
 
 def test_is_vowel():
@@ -32,3 +38,8 @@ def test_split_words():
     assert split_words("ヒオイオイ") == ["ヒオイオイ"]
     assert split_words("アイヌ イタク") == ["アイヌ", " ", "イタク"]
     assert split_words("シネㇷ゚") == ["シネㇷ゚"]
+
+
+def test_combine_accents():
+    assert combine_accents("á") == "á"
+    assert combine_accents("áé") == "áé"
