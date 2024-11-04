@@ -11,7 +11,7 @@ def is_consonant(char: str):
 
 
 def is_letter(s: str):
-    return all(c.isalpha() or c in "\u309A" for c in s)
+    return all(c.isalpha() or c in "\u3099\u309A\u309B\u309C\uFF9E\uFF9F" for c in s)
 
 
 def split_words(s):
