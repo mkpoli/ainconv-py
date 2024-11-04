@@ -10,20 +10,35 @@ import json
 with open("./tests/cases/test_cases.json", "r") as f:
     cases = json.load(f)
 
+with open("./tests/cases/robustness.json", "r") as f:
+    robustness_cases = json.load(f)
+
 
 def test_latn2cyrl() -> None:
     for case in cases:
         assert latn2cyrl(case["latn"]) == case["cyrl"]
+
+    for case in robustness_cases:
+        if case["from"] == "Latn":
+            assert latn2cyrl(case["Latn"]) == case["Cyrl"]
 
 
 def test_cyrl2latn() -> None:
     for case in cases:
         assert cyrl2latn(case["cyrl"]) == case["latn"]
 
+    for case in robustness_cases:
+        if case["from"] == "Cyrl":
+            assert cyrl2latn(case["Cyrl"]) == case["Latn"]
+
 
 def test_latn2kana() -> None:
     for case in cases:
         assert latn2kana(case["latn"]) == case["kana"]
+
+    for case in robustness_cases:
+        if case["from"] == "Latn":
+            assert latn2kana(case["Latn"]) == case["Kana"]
 
     # Test variations
 
@@ -51,3 +66,7 @@ def test_latn2kana() -> None:
 def test_kana2latn() -> None:
     for case in cases:
         assert kana2latn(case["kana"]) == case["latnLossy"]
+
+    for case in robustness_cases:
+        if case["from"] == "Kana":
+            assert kana2latn(case["Kana"]) == case["Latn"]
