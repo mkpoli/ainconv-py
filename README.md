@@ -10,6 +10,7 @@
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/mkpoli/ainconv-py)](https://github.com/mkpoli/ainconv-py/issues)
 [![test](https://github.com/mkpoli/ainconv-py/actions/workflows/test.yml/badge.svg)](https://github.com/mkpoli/ainconv-py/actions/workflows/test.yml)
 [![Discord](https://dcbadge.vercel.app/api/server/pkpAdPHzpP?style=flat)](https://discord.aynu.org/)
+[![Aynuitak](https://img.shields.io/badge/lang-ain-red`)](https://wiki.aynu.org/wiki/Aynu_itak)
 
 <!-- omit in toc -->
 ## Table of Contents
