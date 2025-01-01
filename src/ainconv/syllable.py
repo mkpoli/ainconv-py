@@ -89,4 +89,19 @@ def separate(text: str) -> list[str]:
         else:
             result.append(joined)
 
+    result = [r for r in result if r]
+
+    processed = []
+    i = 0
+    while i < len(result):
+        token = result[i]
+        if token == " " and i + 1 < len(result) and result[i + 1] == "p":
+            processed[-1] += "p"
+            i += 2  # skip the "p"
+        else:
+            processed.append(token)
+            i += 1
+
+    result = [t for t in processed if t]
+
     return result if result[0] else result[1:]
