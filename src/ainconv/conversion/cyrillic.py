@@ -53,9 +53,13 @@ CYRL_2_LATN_Y = {
 }
 
 CYRL_2_LATN_Y_ACCENTED = {
+    "ю": "yu",
     "ю́": "yú",
+    "я": "ya",
     "я́": "yá",
+    "ё": "yo",
     "ё́": "yó",
+    "е": "ye",
     "е́": "yé",
 }
 
@@ -119,7 +123,7 @@ def cyrl2latn(text: str) -> str:
         current_lower = current_char.lower()
         latn = None
 
-        # Peek next char (for й + vowel detection)
+        # Peek next char
         try:
             next_char = chars.peek()
             next_lower = next_char.lower()
@@ -127,8 +131,8 @@ def cyrl2latn(text: str) -> str:
             next_char = None
             next_lower = None
 
-        if current_lower + "́" in CYRL_2_LATN_Y_ACCENTED:
-            latn = CYRL_2_LATN_Y_ACCENTED[current_lower + "́"]
+        if current_lower in CYRL_2_LATN_Y_ACCENTED:
+            latn = CYRL_2_LATN_Y_ACCENTED[current_lower]
         elif current_lower == "й" and next_lower in CYRL_2_LATN_Y:
             next(chars)
             latn = CYRL_2_LATN_Y.get(next_lower)
