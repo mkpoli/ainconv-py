@@ -16,20 +16,36 @@ with open("./tests/cases/robustness.json", "r") as f:
 
 def test_latn2cyrl() -> None:
     for case in cases:
-        assert latn2cyrl(case["latn"]) == case["cyrl"]
+        converted = latn2cyrl(case["latn"])
+        expected = case["cyrl"]
+
+        if converted != expected:
+            print(case["latn"], converted, expected)
+        assert converted == expected
 
     for case in robustness_cases:
         if case["from"] == "Latn":
-            assert latn2cyrl(case["Latn"]) == case["Cyrl"]
+            converted = latn2cyrl(case["Latn"])
+            expected = case["Cyrl"]
+            if converted != expected:
+                print(case["Latn"], converted, expected)
+            assert converted == expected
 
 
 def test_cyrl2latn() -> None:
     for case in cases:
-        assert cyrl2latn(case["cyrl"]) == case["latn"]
+        converted = cyrl2latn(case["cyrl"])
+        expected = case["latn"]
+        if converted != expected:
+            print(case["cyrl"], converted, expected)
+        assert converted == expected
 
     for case in robustness_cases:
-        if case["from"] == "Cyrl":
-            assert cyrl2latn(case["Cyrl"]) == case["Latn"]
+        converted = cyrl2latn(case["Cyrl"])
+        expected = case["Latn"]
+        if converted != expected:
+            print(case["Cyrl"], converted, expected)
+        assert converted == expected
 
 
 def test_latn2kana() -> None:
