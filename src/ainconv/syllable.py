@@ -56,6 +56,8 @@ def separate(text: str) -> list[str]:
     if not text:
         return []
 
+    text = text.lower()
+
     result: list[str] = []
     current_group: list[str] = []
 
