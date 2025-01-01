@@ -56,6 +56,7 @@ The documentation is located at [docs/](docs/). You can make changes to the docu
 <!-- - [ ] Bump the version in `pyproject.toml` (`poetry version <version>`)
 - [ ] Update `CHANGELOG.md` with the new version from `Unreleased`. (`poe changelog`)
 - [ ] Stage and commit the changes (`git commit -am "Bump version to <version>"`) -->
+- [ ] Update `CHANGELOG.md` if there are any undocummented changes.
 - [ ] Commit all changes in working tree.
 - [ ] Check and build the package. (`uv run poe build`)
 - [ ] Bump, commit and tag the version automatically. (`uv run poe bump` for interactive bump, or `uv run bump-my-version bump patch`, etc. for non-interactive bump)
