@@ -1,3 +1,5 @@
+import json
+
 from src.ainconv.syllable import separate
 
 SEPARATION_TEST_CASES = {
@@ -26,3 +28,10 @@ SEPARATION_TEST_CASES = {
 def test_separate() -> None:
     for text, syllables in SEPARATION_TEST_CASES.items():
         assert separate(text) == syllables
+
+    for case in cases:
+        assert separate(case["latn"]) == case["syllables"]
+
+
+with open("./tests/cases/test_cases.json", "r") as f:
+    cases = json.load(f)
