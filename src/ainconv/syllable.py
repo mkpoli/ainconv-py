@@ -31,13 +31,17 @@ def separate_word(text: str) -> list[str]:
     syllables.append(text[head:])
 
     return [
-        s.replace("'", "").replace("’", "").replace("yi", "i").replace("wu", "u")
+        s.replace("'", "")
+        .replace("’", "")
+        .replace("yi", "i")
+        .replace("wu", "u")
+        .replace("=", "")
         for s in syllables
     ]
 
 
 def is_letter(char: str) -> bool:
-    return char.isalpha() or char in "’'"
+    return char.isalpha() or char in "’'="
 
 
 def separate(text: str) -> list[str]:
