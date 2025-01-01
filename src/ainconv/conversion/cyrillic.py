@@ -30,9 +30,13 @@ LATN_2_CYRL = {
 
 LATN_2_CYRL_Y = {
     "u": "ю",
+    "ú": "ю́",
     "a": "я",
+    "á": "я́",
     "o": "ё",
+    "ó": "ё́",
     "e": "е",
+    "é": "е́",
 }
 
 LATN_2_CYRL_Y_WITH_Y = {f"y{k}": v for k, v in LATN_2_CYRL_Y.items()}
@@ -50,7 +54,7 @@ def latn2cyrl(text: str) -> str:
     merged_chunks = []
     for chunk in text.split():
         if chunk.lower() == "p" and merged_chunks:
-            merged_chunks[-1] += chunk  # e.g. "kuni" + "p" -> "kunip"
+            merged_chunks[-1] += chunk
         else:
             merged_chunks.append(chunk)
     text = " ".join(merged_chunks)
@@ -64,9 +68,8 @@ def latn2cyrl(text: str) -> str:
             break
 
         current_lower = current_char.lower()
-        cyrl = None
 
-        # Peek at the next char
+        # Peek at next char
         try:
             next_char = chars.peek()
             next_lower = next_char.lower()
@@ -78,11 +81,11 @@ def latn2cyrl(text: str) -> str:
             _ = next(chars)
             cyrl = LATN_2_CYRL_Y[next_lower]
             if current_char.isupper():
-                cyrl = cyrl.upper()
+                cyrl = combine_accents(cyrl.upper())
         else:
             cyrl = LATN_2_CYRL.get(current_lower, current_char)
             if current_char.isupper() and cyrl != current_char:
-                cyrl = cyrl.upper()
+                cyrl = combine_accents(cyrl.upper())
 
         result.append(cyrl)
 
