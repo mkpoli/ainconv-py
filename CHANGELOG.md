@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added normalization for invalid "yi-" and "wu-" syllable upon syllable separation.
+
 ### Fixed
 
 - Fixed words with apostrophe are separated into words instead of as a single word.

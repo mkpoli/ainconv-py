@@ -30,7 +30,10 @@ def separate_word(text: str) -> list[str]:
 
     syllables.append(text[head:])
 
-    return [s.replace("'", "").replace("’", "") for s in syllables]
+    return [
+        s.replace("'", "").replace("’", "").replace("yi", "i").replace("wu", "u")
+        for s in syllables
+    ]
 
 
 def is_letter(char: str) -> bool:
