@@ -91,10 +91,10 @@ def test_latn2kana() -> None:
     assert latn2kana("wiwewo", use_wi=True, use_we=True, use_wo=True) == "ヰヱヲ"
 
 
-# def test_kana2latn() -> None:
-#     for case in cases:
-#         assert kana2latn(case["kana"]) == case["latnLossy"]
+def test_kana2latn() -> None:
+    for case in cases:
+        assert kana2latn(case["kana"]) == case["latnLossy"]
 
-#     for case in robustness_cases:
-#         if case["from"] == "Kana":
-#             assert kana2latn(case["Kana"]) == case["Latn"]
+    for case in robustness_cases:
+        if case["from"] == "Kana":
+            assert kana2latn(case["Kana"]) == case["Latn"]
