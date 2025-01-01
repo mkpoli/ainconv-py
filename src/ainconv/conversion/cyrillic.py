@@ -47,30 +47,48 @@ CYRL_2_LATN_Y = {
 
 def latn2cyrl(text: str) -> str:
     """Converts Latin script to Cyrillic script."""
+    merged_chunks = []
+    for chunk in text.split():
+        if chunk.lower() == "p" and merged_chunks:
+            merged_chunks[-1] += chunk  # e.g. "kuni" + "p" -> "kunip"
+        else:
+            merged_chunks.append(chunk)
+    text = " ".join(merged_chunks)
+
     result = []
     chars = peekable(text)
+    while True:
+        try:
+            current_char = next(chars)
+        except StopIteration:
+            break
 
-    for current_char in chars:
         current_lower = current_char.lower()
         cyrl = None
-        next_char = chars.peek() if chars else None
-        next_lower = next_char.lower() if next_char else None
+
+        # Peek at the next char
+        try:
+            next_char = chars.peek()
+            next_lower = next_char.lower()
+        except StopIteration:
+            next_char = None
+            next_lower = None
 
         if current_lower == "y" and next_lower in LATN_2_CYRL_Y:
-            next(chars)
-            cyrl = LATN_2_CYRL_Y.get(next_lower)
-            if cyrl:
-                if current_char.isupper():
-                    cyrl = cyrl.upper()
+            _ = next(chars)
+            cyrl = LATN_2_CYRL_Y[next_lower]
+            if current_char.isupper():
+                cyrl = cyrl.upper()
         else:
-            cyrl = LATN_2_CYRL.get(current_lower)
-
-        cyrl = cyrl or current_char
-        cyrl = cyrl.upper() if current_char.isupper() else cyrl
+            cyrl = LATN_2_CYRL.get(current_lower, current_char)
+            if current_char.isupper() and cyrl != current_char:
+                cyrl = cyrl.upper()
 
         result.append(cyrl)
 
-    return "".join(result).replace("’", "").replace("йи", "и")
+    text_cyrl = "".join(result)
+    text_cyrl = text_cyrl.replace("’", "").replace("йи", "и")
+    return text_cyrl
 
 
 def cyrl2latn(text: str) -> str:
