@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added normalization for invalid "yi-" and "wu-" syllable upon syllable separation.
+- Added normalization for "йи" in Cyrillic.
 - Added equal sign (`=`) removal upon syllable separation.
 - Added support for merging "p" with the next token upon syllable separation.
 - Added lowercase conversion upon syllable separation.

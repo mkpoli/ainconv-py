@@ -70,7 +70,7 @@ def latn2cyrl(text: str) -> str:
 
         result.append(cyrl)
 
-    return "".join(result).replace("’", "")
+    return "".join(result).replace("’", "").replace("йи", "и")
 
 
 def cyrl2latn(text: str) -> str:
