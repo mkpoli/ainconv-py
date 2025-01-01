@@ -1,8 +1,3 @@
-VOWELS = "aeiou"
-CONSONANTS = "ptckmnshwry’"
-
-from unicodedata import normalize
-
 ACCENTED_VOWELS = {
     "á": "a",
     "é": "e",
@@ -10,6 +5,11 @@ ACCENTED_VOWELS = {
     "ó": "o",
     "ú": "u",
 }
+
+VOWELS = "aeiouáéíóúâêîôûāēīōū"
+CONSONANTS = "ptckmnshwry’"
+
+from unicodedata import normalize
 
 
 def clean(text: str) -> str:

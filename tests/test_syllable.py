@@ -18,6 +18,8 @@ SEPARATION_TEST_CASES = {
         "ka",
         "re",
     ],
+    "tané": ["ta", "né"],
+    "ônâ": ["ô", "nâ"],
 }
 
 
