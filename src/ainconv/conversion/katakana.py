@@ -222,6 +222,7 @@ KANA_2_LATN = {
     "ㇺ": "m",
     "ㇴ": "n",
     "𛅧": "n",
+    "ー": "̂",
 }
 
 KANA_2_LATN_DIAGRAPH = {
@@ -298,7 +299,11 @@ def kana2latn(kana: str) -> str:
                     continue
             result.append(char)
 
-        return "".join(result)
+        print(f"{result = }")
+        joined = "".join(result)
+        joined = unicodedata.normalize("NFC", joined)
+        print(f"{joined = }")
+        return joined
 
     return "".join(convert_word(word) for word in split_words(kana))
 
