@@ -30,7 +30,11 @@ def separate_word(text: str) -> list[str]:
 
     syllables.append(text[head:])
 
-    return [s.replace("'", "") for s in syllables]
+    return [s.replace("'", "").replace("’", "") for s in syllables]
+
+
+def is_letter(char: str) -> bool:
+    return char.isalpha() or char in "’'"
 
 
 def separate(text: str) -> list[str]:
@@ -48,12 +52,12 @@ def separate(text: str) -> list[str]:
     result: list[str] = []
     current_group: list[str] = []
 
-    last_alpha = text[0].isalpha()
+    last_alpha = is_letter(text[0])
 
     for char in text:
         # ic(char, last_alpha, current_group, result)
 
-        current_alpha = char.isalpha()
+        current_alpha = is_letter(char)
         # ic(current_alpha, last_alpha, current_alpha == last_alpha)
 
         if current_alpha != last_alpha:
