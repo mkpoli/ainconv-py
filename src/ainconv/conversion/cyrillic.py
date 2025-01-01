@@ -52,11 +52,18 @@ CYRL_2_LATN_Y = {
     "э": "y’e",
 }
 
+CYRL_2_LATN_Y_ACCENTED = {
+    "ю́": "yú",
+    "я́": "yá",
+    "ё́": "yó",
+    "е́": "yé",
+}
+
 
 def latn2cyrl(text: str) -> str:
     """Converts Latin script to Cyrillic script."""
     merged_chunks = []
-    for chunk in text.split():
+    for chunk in text.split(" "):
         if chunk.lower() == "p" and merged_chunks:
             merged_chunks[-1] += chunk
         else:
@@ -103,21 +110,29 @@ def cyrl2latn(text: str) -> str:
     result = []
     chars = peekable(text)
 
-    for current_char in chars:
+    while True:
+        try:
+            current_char = next(chars)
+        except StopIteration:
+            break
+
         current_lower = current_char.lower()
         latn = None
-        next_char = chars.peek() if chars else None
-        next_lower = next_char.lower() if next_char else None
 
-        # print(f"f{current_lower = } {next_lower = }")
+        # Peek next char (for й + vowel detection)
+        try:
+            next_char = chars.peek()
+            next_lower = next_char.lower()
+        except StopIteration:
+            next_char = None
+            next_lower = None
 
-        if current_lower == "й" and next_lower in CYRL_2_LATN_Y:
-            # print("й with vowel")
+        if current_lower + "́" in CYRL_2_LATN_Y_ACCENTED:
+            latn = CYRL_2_LATN_Y_ACCENTED[current_lower + "́"]
+        elif current_lower == "й" and next_lower in CYRL_2_LATN_Y:
             next(chars)
             latn = CYRL_2_LATN_Y.get(next_lower)
         else:
-            # print(LATN_2_CYRL | LATN_2_CYRL_Y)
-
             latn = next(
                 (
                     latn
@@ -127,9 +142,12 @@ def cyrl2latn(text: str) -> str:
                 None,
             )
 
-        latn = latn or current_char
-        latn = latn.upper() if current_char.isupper() else latn
+        if current_char.isupper():
+            if latn and len(latn) > 1:
+                latn = latn[0].upper() + latn[1:]
+            else:
+                latn = latn.upper() if latn else current_char
 
         result.append(latn if latn is not None else current_char)
 
-    return combine_accents("".join(result))
+    return combine_accents("".join(result)).replace("yi", "i").replace("wu", "u")
