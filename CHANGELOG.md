@@ -13,6 +13,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added accent support for dipthongs in Latin to Cyrillic conversion.
 - Added normalization for "ву" in Cyrillic.
 - Ignore lengthened vowel in Latin to Cyrillic conversion.
+- Added normalization for "ー" in Latin to Katakana conversion.
+
+### Fixed
+
+- Fixed uppercase dipthong in Latin to Cyrillic and Cyrillic to Latin conversion.
 
 ## [0.7.0] - 2025-01-02
 
